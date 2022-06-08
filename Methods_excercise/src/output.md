@@ -1,4 +1,4 @@
-Hello World!
+Hello World!\n
 The result is: 60
 hello : josh
 
