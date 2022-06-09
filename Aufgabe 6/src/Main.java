@@ -1,11 +1,11 @@
 
 public class Main {
     public static int width = 60;
-    public static int border = 2;       // border must be 2
+    public static const int border = 2;         // border must be 2
     public static int padding = 3;
     public static int hight = 9;
 
-    public static String spaceChar = " ";
+    public static String spaceChar = " ";       // all buildingblocks for terminal print
     public static String altSpaceChar = ".";
     public static String borderHorizontalChar = "-";
     public static String borderVerticalChar = "|";
@@ -13,7 +13,7 @@ public class Main {
     public static String lineBreak = "\n";
 
     public static void main(String[] args) {
-        printEnvelope(
+        printEnvelope(      
                 "Max Mustermann", "Mustertr. 42", "14242 Musterstadt",
                 "Anna Alt", "Spass-Str. 123", "13353 Berlin"
         );
@@ -94,48 +94,52 @@ public class Main {
     //%%%%%%% SUB METHOD DEFINITIONS %%%%%%%%%%%
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    //method to print horizontal line:
+    //method to add a padding:
     public static void paddingLoop(){
-        for (int k = 0; k < padding; k++){        // print blank " " as much as padding
+        for (int k = 0; k < padding; k++){                                    // print blank " " as much as padding
             System.out.print(altSpaceChar/*+spaceChar*/);
         }
-    }
-
+    }    
+    
+    //method to create empty space for the top text:
     public static void emptyTo(String Input){
 
-        int lengthOfInput = Input.length();
-        //int reversePadding = padding*2;
+        int lengthOfInput = Input.length();                                   // Uses the length of the Input value to subtract from
+        //int reversePadding = padding*2;                                     // the empty space in order to format String behind the edge.                                                     
 
-        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){        // print blank " " as much as
-            System.out.print(altSpaceChar/*+spaceChar*/);
+        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){        // creates the empty space until
+            System.out.print(altSpaceChar/*+spaceChar*/);                     // the edge of the letter.  
         }
     }
 
+    //method to create empty space for the bottom text:
     public static void emptyFrom(String Input){
 
-        int lengthOfInput = Input.length();
+        int lengthOfInput = Input.length();                                   // same as EmptyTo().
         //int reversePadding = padding*2;
 
-        for (int k = 0; k <= width-/*2*/border-padding-lengthOfInput; k++){        // print blank " " as much as
+        for (int k = 0; k <= width-/*2*/border-padding-lengthOfInput; k++){   // print blank " " as much as the padding.
             System.out.print(altSpaceChar/*+spaceChar*/);                     // border must be 2
         }
     }
 
+    //method to create empty space for entire line until edge:
     public static void emptyLine(){
 
-        for (int k = 0; k <= width-2; k++){        // print blank " " as much as
+        for (int k = 0; k <= width-2; k++){                                   // print blank " " as much as the padding.
             System.out.print(altSpaceChar/*+spaceChar*/);
         }
     }
 
+    //method to create the beginning or closing bar:
     public static void barFunction(){
-        System.out.print(cornerChar);               // print corner at beginning.
+        System.out.print(cornerChar);                                         // print corner at beginning.
 
-        for(int i=0; i <= width-2; i++){             // print as many horizontal lines as 'width - 2',
-                                                     // to keep the same width including the cornerChar's.
+        for(int i=0; i <= width-2; i++){                                      // print as many horizontal lines as 'width - 2',
+                                                                              // to keep the same width including the cornerChar's.
 
             System.out.print(borderHorizontalChar);
         }
-        System.out.println(cornerChar);             // print corner at bottom.
+        System.out.println(cornerChar);                                       // print corner at bottom.
     }
 }
