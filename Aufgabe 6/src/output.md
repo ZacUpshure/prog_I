@@ -15,7 +15,7 @@ Output
 Process finished with exit code 0
 ```
 Variables
-```
+```java
     public static int width = 60;
     public static int border = 2;       // border must be 2
     public static int padding = 3;
