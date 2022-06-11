@@ -64,132 +64,78 @@ public class Main {
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     //%%%%%%% SUB METHOD DEFINITIONS %%%%%%%%%%%
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-    public static void body(String fromName, String fromAddress, String fromZipCodeAndCity , String toName, String toAddress, String toZipCodeAndCity) {
-        for(int j=0; j < hight; j++){
-
-
-            if(j==1) {
-                System.out.print(borderVerticalChar);     // println is must be only print in loop[1].
-                paddingLoop();                            // add padding.
-                System.out.print(fromName);               // print information.
-                emptyFrom(fromName);                      // create empty space (using String to optimize formatting).
-                System.out.print(borderVerticalChar);     // print pipe.
-                System.out.print(lineBreak);              // line break.
-            }
-            else if(j==2){
-                System.out.print(borderVerticalChar);     //  ... same as top description.
-                paddingLoop();
-                System.out.print(fromAddress);
-                emptyFrom(fromAddress);
-                System.out.print(borderVerticalChar);
-                System.out.print(lineBreak);
-            }
-            else if(j==3){
-                System.out.print(borderVerticalChar);     //  ... same as top description.
-                paddingLoop();
-                System.out.print(fromZipCodeAndCity);
-                emptyFrom(fromZipCodeAndCity);
-                System.out.print(borderVerticalChar);
-                System.out.print(lineBreak);
-            }
-            else if(j==5){
-                System.out.print(borderVerticalChar);      //  ... same as top description.
-                emptyTo(toName);
-                System.out.print(toName);
-                paddingLoop();
-                System.out.print(borderVerticalChar);
-                System.out.print(lineBreak);
-            }
-            else if(j==6){
-                System.out.print(borderVerticalChar);       //  ... same as top description.
-                emptyTo(toAddress);
-                System.out.print(toAddress);
-                paddingLoop();
-                System.out.print(borderVerticalChar);
-                System.out.print(lineBreak);
-            }
-            else if(j==7){
-                System.out.print(borderVerticalChar);       //  ... same as top description.
-                emptyTo(toZipCodeAndCity);
-                System.out.print(toZipCodeAndCity);
-                paddingLoop();
-                System.out.print(borderVerticalChar);
-                System.out.print(lineBreak);
-            }
-            else{
-                System.out.print(borderVerticalChar);
-                emptyLine();                                // creates intire empty space.
-                System.out.println(borderVerticalChar);     // finish with linebreak.
-            }
-        }
-    }
-
+    
+    //Padding
     public static void paddingLoop(){
-        for (int k = 0; k < padding; k++){        // print blank " " as much as padding
+        for (int k = 0; k < padding; k++){                                        // print blank " " as much as padding
             System.out.print(spaceChar/*+spaceChar*/);
         }
     }
 
+    //Empty for resciever
     public static void emptyTo(String Input){
 
         int lengthOfInput = Input.length();
         //int reversePadding = padding*2;
 
-        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){        // print blank " " as much as
+        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){            // print blank " " as much as
             System.out.print(spaceChar);
         }
     }
 
+    //Empty for sender
     public static void emptyFrom(String Input){
 
         int lengthOfInput = Input.length();
         //int reversePadding = padding*2;
 
         for (int k = 0; k <= width-/*2*/border-padding-lengthOfInput; k++){        // print blank " " as much as
-            System.out.print(spaceChar);                     // border must be 2
+            System.out.print(spaceChar);                                           // border must be 2
         }
     }
 
+    //Empty line
     public static void emptyLine(){
         
         System.out.print(borderVerticalChar);
-        for (int k = 0; k <= width-2; k++){        // print blank " " as much as
+        for (int k = 0; k <= width-2; k++){                                        // print blank " " as much as
             System.out.print(altSpaceChar/*+spaceChar*/);
         }
         System.out.print(borderVerticalChar);
         System.out.print(lineBreak);
     }
 
+    //Bar
     public static void barFunction(){
-        System.out.print(cornerChar);               // print corner at beginning.
+        System.out.print(cornerChar);                                              // print corner at beginning.
 
-        for(int i=0; i <= width-2; i++){             // print as many horizontal lines as 'width - 2',
-                                                     // to keep the same width including the cornerChar's.
+        for(int i=0; i <= width-2; i++){                                           // print as many horizontal lines as 'width - 2',
+                                                                                   // to keep the same width including the cornerChar's.
 
             System.out.print(borderHorizontalChar);
         }
-        System.out.println(cornerChar);             // print corner at bottom.
+        System.out.println(cornerChar);                                            // print corner at bottom.
     }
     
-    public static String getLongestString(String[] array) {
-      int maxLength = 0;
-      String longestString = null;
-      for (String s : array) {
+    //to get the longest String
+    public static String getLongestString(String[] array) {                        // compares the two str. and returns the largest one 
+      int maxLength = 0;                                                           // initialize maxLenght as counter
+      String longestString = null;                                                 // initialize a variable for the return value
+      for (String s : array) {                                                     // extended for loop for longest string 
           if (s.length() > maxLength) {
-              maxLength = s.length();
-              longestString = s;
+              maxLength = s.length();                                              // allocating max lenght to the length of s 
+              longestString = s;                                                   // allocating longestString to s 
           }
       }
       return longestString;
   }
-  
+    //fill the rest of the empty space to the lenght of the largest str.
     public static void fillToData(String toBeFilled, String fill){
-        int lenght1 = toBeFilled.length();
-        int lenght2 = fill.length();
-        int difference = lenght2-lenght1;
+        int lenght1 = toBeFilled.length();                                         // initializing lenght of the smaller str. 
+        int lenght2 = fill.length();                                               // initializing lenght of the largest str.   
+        int difference = lenght2-lenght1;                                          // initializing difference of both length
         
-        for(int i=0; i<=difference-1; i++){
+        for(int i=0; i<=difference-1; i++){                                        // printing as many spaceChar's as the differnece 
             System.out.print(spaceChar);
         }
     }
