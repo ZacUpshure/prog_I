@@ -1,6 +1,6 @@
 public class Main {
     public static int width = 60;
-    public static int border = 3;       // border must be 2
+    public static int border = 3;       // border must be 3
     public static int padding = 3;
     public static int hight = 9;
 
@@ -78,7 +78,7 @@ public class Main {
         int lengthOfInput = Input.length();
         //int reversePadding = padding*2;
 
-        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){            // print blank " " as much as
+        for (int k = 0; k <= width-border-padding-lengthOfInput; k++){            // print blank " " until edge
             System.out.print(spaceChar);
         }
     }
@@ -89,8 +89,8 @@ public class Main {
         int lengthOfInput = Input.length();
         //int reversePadding = padding*2;
 
-        for (int k = 0; k <= width-/*2*/border-padding-lengthOfInput; k++){        // print blank " " as much as
-            System.out.print(spaceChar);                                           // border must be 2
+        for (int k = 0; k <= width-/*2*/border-padding-lengthOfInput; k++){        // print blank " " until edge
+            System.out.print(spaceChar);                                           // border must be 3
         }
     }
 
@@ -98,7 +98,7 @@ public class Main {
     public static void emptyLine(){
         
         System.out.print(borderVerticalChar);
-        for (int k = 0; k <= width-border; k++){                                        // print blank " " as much as
+        for (int k = 0; k <= width-border; k++){                                   // print blank " " for intire line
             System.out.print(spaceChar/*+spaceChar*/);
         }
         System.out.print(borderVerticalChar);
@@ -109,7 +109,7 @@ public class Main {
     public static void barFunction(){
         System.out.print(cornerChar);                                              // print corner at beginning.
 
-        for(int i=0; i <= width-border; i++){                                           // print as many horizontal lines as 'width - 2',
+        for(int i=0; i <= width-border; i++){                                      // print as many horizontal lines as 'width - border',
                                                                                    // to keep the same width including the cornerChar's.
 
             System.out.print(borderHorizontalChar);
