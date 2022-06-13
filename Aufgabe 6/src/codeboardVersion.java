@@ -1,11 +1,11 @@
 public class Main {
     public static int width = 60;
-    public static int border = 2;       // border must be 2
+    public static int border = 3;       // border must be 2
     public static int padding = 3;
     public static int hight = 9;
 
     public static String spaceChar = " ";
-    public static String altSpaceChar = " ";
+    //public static String altSpaceChar = " ";
     public static String borderHorizontalChar = "-";
     public static String borderVerticalChar = "|";
     public static String cornerChar = "+";
@@ -98,8 +98,8 @@ public class Main {
     public static void emptyLine(){
         
         System.out.print(borderVerticalChar);
-        for (int k = 0; k <= width-2; k++){                                        // print blank " " as much as
-            System.out.print(altSpaceChar/*+spaceChar*/);
+        for (int k = 0; k <= width-border; k++){                                        // print blank " " as much as
+            System.out.print(spaceChar/*+spaceChar*/);
         }
         System.out.print(borderVerticalChar);
         System.out.print(lineBreak);
@@ -109,7 +109,7 @@ public class Main {
     public static void barFunction(){
         System.out.print(cornerChar);                                              // print corner at beginning.
 
-        for(int i=0; i <= width-2; i++){                                           // print as many horizontal lines as 'width - 2',
+        for(int i=0; i <= width-border; i++){                                           // print as many horizontal lines as 'width - 2',
                                                                                    // to keep the same width including the cornerChar's.
 
             System.out.print(borderHorizontalChar);
