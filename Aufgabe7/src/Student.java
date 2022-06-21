@@ -51,4 +51,7 @@ public class Student {
     public String getCourse(){
         return course;
     }
+    public String toString(){
+        return prename+" "+surname+" "+"("+registrationNumber+"), "+course;
+    }
 }
