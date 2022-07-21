@@ -35,9 +35,11 @@ public class test {
                 if(Wohnort.equals("Berlin")){
                     if(Versandart.equals("express")){
                         System.out.println("gebühren sind "+basisGebuehr+expressAufschlag+"€");
+                        return basisGebuehr+expressAufschlag;
                     }
                     else{
                         System.out.println("gebühren bleiben "+basisGebuehr+"€");
+                        return basisGebuehr;
                     }
 
                 }
@@ -45,12 +47,12 @@ public class test {
 
                     if(Versandart.equals("express")){
                         System.out.println("gebühren sind "+basisGebuehr+expressAufschlag+"€");
+                        return basisGebuehr+expressAufschlag;
                     }
                     else{
                         System.out.println("gebühren sind "+basisGebuehr+Aufschlag+"€");
+                        return basisGebuehr+Aufschlag;
                     }
                 }
-                return basisGebuehr;
             }
-
 }
